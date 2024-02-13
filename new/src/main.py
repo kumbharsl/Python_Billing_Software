@@ -1,3 +1,3 @@
 print("Hello Python")
 print("Hello Sagar")
-start quiz
+print("Start quiz")
