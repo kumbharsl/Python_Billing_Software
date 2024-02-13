@@ -22,6 +22,11 @@ class QuizApp(tk.Tk):
                 "options": ["Earth", "Mars", "Jupiter", "Saturn"],
                 "correct_answer": "Jupiter"
             },
+            {
+                "question": "Which language used in flutter frameWork",
+                "options": ["Dart", "Go", "Roby", "c"],
+                "correct_answer": "Dart"
+            },
             # Add more questions here
         ]
         
