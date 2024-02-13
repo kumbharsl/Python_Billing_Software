@@ -28,7 +28,7 @@ class QuizApp(tk.Tk):
                 "correct_answer": "Dart"
             },
             # Add more questions here
-        ]
+        ],
         
         self.label_question = tk.Label(self, text="")
         self.label_question.pack()
