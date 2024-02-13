@@ -18,6 +18,11 @@ quiz_data = [
         "question": "Which country is known as the 'Land of the Rising Sun'?",
         "choices": ["China", "Japan", "South Korea", "Thailand"],
         "answer": "Japan"
+    },
+    {
+        "question": "Which country is known as the 'Land of the Rising Sun'?",
+        "choices": ["China", "Japan", "South Korea", "Thailand"],
+        "answer": "Japan"
     }
     # Add more questions here
 ]
