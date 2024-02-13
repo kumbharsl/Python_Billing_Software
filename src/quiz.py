@@ -23,6 +23,11 @@ quiz_data = [
         "question": "Which country is known as the 'Land of the Rising Sun'?",
         "choices": ["China", "Japan", "South Korea", "Thailand"],
         "answer": "Japan"
-    }
+    },
+    {
+        "question": "How many sides does a hexagon have?",
+        "choices": ["6", "8", "10", "24"],
+        "answer": "6"
+    },
     # Add more questions here
 ]
