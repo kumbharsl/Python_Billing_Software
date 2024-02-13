@@ -29,5 +29,11 @@ quiz_data = [
         "choices": ["6", "8", "10", "24"],
         "answer": "6"
     },
+     {
+        "question": "Which language used in flutter?",
+        "choices": ["Ruby", "Go", "C", "Dart"],
+        "answer": "Dart"
+    },
+
     # Add more questions here
 ]
