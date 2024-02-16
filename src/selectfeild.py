@@ -9,10 +9,18 @@ class SelectFeild:
         self.select_root=tk.Tk()
         self.select_screen_width=self.select_root.winfo_screenwidth()
         self.select_screen_height=self.select_root.winfo_screenheight()
+        self.select_root.title("Billing Software")
 
         #Creater a main Window.
         self.select_root.geometry(f"{ self.select_screen_width}x{self.select_screen_height}")
         self.select_root.config(bg="#00FFFF")
+
+
+    def setup_ui(self):
+        self.selectoption=tk.Button(text="Medical", style ="Rounded.TButton", )
+        self.selectoption.pack()
+        self.selectoption.place(x=700,y=370)
         self.select_root.mainloop()
 
 obj=SelectFeild()
+obj.setup_ui()
