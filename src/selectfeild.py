@@ -65,9 +65,9 @@ class SelectFeild:
         '''
         #Set up a lable with welcome text
         self.select_original_label_text="Welcome "
-        self.select_right_label=tk.Label(text=self.select_original_label_text, background="#BCD2E8", font=("Poppins", 50,"bold"))
+        self.select_right_label=tk.Label(text=self.select_original_label_text, background="#00FFFF", font=("Poppins", 30,"bold"))
         self.select_right_label.pack()
-        self.select_right_label.place(x=500, y=300, anchor='nw')
+        self.select_right_label.place(x=630, y=10, anchor='nw')
         #mainloop.loop
         self.select_root.mainloop()
 
