@@ -62,9 +62,10 @@ class SelectFeild:
         self.select_back_button=ttk.Button(self.select_left_frame, text="Back", style="Rounded.TButton", )
         self.select_back_button.pack()
         self.select_back_button.place(x=60, y=470, anchor="nw")
+        self.select_root.mainloop()
         
 
 
 obj=SelectFeild()
-#select_root.mainloop()
+
 obj.setup_ui()
