@@ -32,11 +32,11 @@ class SelectFeild:
         style.configure("Rounded.TButton",borderwidth=0, relief='flat',background="#BCD2E8", padding=10, font=("Poppins", 12))
         style.map("Rounded.Tbutton", foreground=[('pressed', 'black'),('active', 'white')])
 
-        #Create the font Library button
+        # #Create the font Library button
         self.select_button_label=ttk.Button(self.select_left_frame, text="Medical", style="Rounded.TButton")
         self.select_button_label.pack()
         self.select_button_label.place(x=60, y=350, anchor='nw')
-        
+            
         
 
         #Set up the right frame for Dyanamic content
