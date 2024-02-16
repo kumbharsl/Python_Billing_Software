@@ -14,7 +14,7 @@ class SelectFeild:
 
         #Creater a main Window.
         self.select_root.geometry(f"{ self.select_screen_width}x{self.select_screen_height}")
-        self.select_root.config(bg="#00FFFF")
+        self.select_root.config(bg="#808080")
 
         
 
@@ -65,7 +65,7 @@ class SelectFeild:
         '''
         #Set up a lable with welcome text
         self.select_original_label_text="Welcome "
-        self.select_right_label=tk.Label(text=self.select_original_label_text, background="#00FFFF", font=("Poppins", 30,"bold"))
+        self.select_right_label=tk.Label(text=self.select_original_label_text, background="#808080", font=("Poppins", 30,"bold"))
         self.select_right_label.pack()
         self.select_right_label.place(x=630, y=10, anchor='nw')
         #mainloop.loop
