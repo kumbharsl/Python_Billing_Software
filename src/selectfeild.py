@@ -1,6 +1,9 @@
+from tkinter import*
+import random
 import os
+from tkinter import messagebox
 import tkinter as tk
-from tkinter import ttk, messagebox
+
 #from medical import Medical
 
 class SelectFeild:
@@ -64,11 +67,26 @@ class SelectFeild:
         self.select_root.mainloop()
         '''
         #Set up a lable with welcome text
-        self.select_original_label_text="Welcome "
+        self.select_original_label_text="Welcome..."
         self.select_right_label=tk.Label(text=self.select_original_label_text, background="#808080", font=("Poppins", 30,"bold"))
         self.select_right_label.pack()
         self.select_right_label.place(x=10, y=2, anchor='nw')
         #mainloop.loop
+
+        title = Label(text="Billing Software", font=('times new roman', 30, 'bold'), pady=2,  bg="#badc57", fg="#000000")
+        title.pack(fill=X)
+
+
+        F5 = Frame(self.select_root)
+        F5.place(x=1010, y=180, width=350, height=380)
+
+        bill_title = Label(F5, text="Bill Area", font='arial 15 bold', bd=7, relief=GROOVE)
+        bill_title.pack(fill=X)
+        scroll_y = Scrollbar(F5, orient=VERTICAL)
+        self.txtarea = Text(F5, yscrollcommand=scroll_y.set)
+        scroll_y.pack(side=RIGHT, fill=Y)
+        scroll_y.config(command=self.txtarea.yview)
+        self.txtarea.pack(fill=BOTH, expand=1)
         self.select_root.mainloop()
 
 
