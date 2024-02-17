@@ -97,4 +97,4 @@ class SelectFeild:
 
 
 obj=SelectFeild()
-obj.setup_ui()
+obj.setup_ui()'''

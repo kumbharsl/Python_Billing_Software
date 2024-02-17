@@ -3,8 +3,6 @@ import random
 import os
 from tkinter import messagebox
 
-
-#===============main=====================
 class Bill_App:
     def __init__(self, root):
         self.root = root
@@ -375,7 +373,7 @@ class Bill_App:
     def clear_data(self):
         op = messagebox.askyesno("Clear", "Do you really want to Clear?")
         if op > 0:
-            self.sanitizer.set(0)
+            self.sanitizer.set(50)
             self.mask.set(0)
             self.hand_gloves.set(0)
             self.syrup.set(0)
