@@ -75,8 +75,8 @@ class SelectFeild:
 
         title = Label(text="Billing Software", font=('times new roman', 30, 'bold'), pady=2,  bg="#badc57", fg="#000000")
         title.pack(fill=X)
-
-
+        
+        
         F5 = Frame(self.select_root)
         F5.place(x=1010, y=180, width=350, height=380)
 
