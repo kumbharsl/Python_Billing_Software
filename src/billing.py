@@ -1,3 +1,4 @@
+import tkinter as tk
 from tkinter import*
 import random
 import os
@@ -6,8 +7,8 @@ from tkinter import messagebox
 
 #===============main=====================
 class Bill_App:
-    def __init__(self, root):
-        self.root = root
+    def __init__(self):
+        self.root = tk.Tk()
         self.select_screen_width=self.root.winfo_screenwidth()
         self.select_screen_height=self.root.winfo_screenheight()
         self.root.geometry(f"{ self.select_screen_width}x{self.select_screen_height}")
@@ -47,7 +48,8 @@ class Bill_App:
         self.bill_no = StringVar()
         x = random.randint(1000, 9999)
         self.bill_no.set(str(x))
-        self.search_bill = StringVar()
+    
+        self.search_bill = IntVar()
     # ===============Tax================================
         self.medical_tax = StringVar()
         self.grocery_tax = StringVar()
@@ -135,7 +137,7 @@ class Bill_App:
 
         flour_lbl = Label(F3, text="Flour", font=('Rockwell', 16, 'bold'), bg=bg_color, fg=fg_colr)
         flour_lbl.grid(row=4, column=0, padx=10, pady=10, sticky='W')
-        flour_txt = Entry(F3, width=10, textvariable=self.flour, font=('Rockwell', 16, 'bold'), bd=5, relief=GROOVE)
+        flour_txt = Entry(F3, width=10, textvariable=self.flour, font=('Rockwell', 16, 'bold'),relief=GROOVE)
         flour_txt.grid(row=4, column=1, padx=10, pady=10)
 
         maggi_lbl = Label(F3, text="Maggi", font=('Rockwell', 16, 'bold'), bg=bg_color, fg=fg_colr)
@@ -230,7 +232,7 @@ class Bill_App:
         total_btn = Button(btn_f, command=self.total, text="Total", bg=bg_color,  fg=fg_colr, pady=15, width=12, font='arial 13 bold')
         total_btn.grid(row=0, column=0, padx=5, pady=5)
 
-        generateBill_btn = Button(btn_f, command=self.bill_area, text="Generate Bill",bg=bg_color, fg=fg_colr, pady=12, width=12, font='arial 13 bold')
+        generateBill_btn = Button(btn_f, command=self.bill_area, text="Generate Bill",bg=bg_color, fg=fg_colr, pady=15, bd=5,width=12, font='arial 13 bold')
         generateBill_btn.grid(row=0, column=1, padx=5, pady=5)
 
         clear_btn = Button(btn_f, command=self.clear_data, text="Clear", bg=bg_color, fg=fg_colr, pady=15, width=12, font='arial 13 bold')
@@ -240,42 +242,45 @@ class Bill_App:
         exit_btn.grid(row=0, column=3, padx=5, pady=5)
         self.welcome_bill()
 
+        #==============execute mainloop===========
+        self.root.mainloop()
+
 
     def total(self):
-        self.m_h_g_p = self.hand_gloves.get()*12
-        self.m_s_p = self.sanitizer.get()*3
-        self.m_m_p = self.mask.get()*5
-        self.m_s = self.syrup.get()*30
-        self.m_c_p = self.cream.get()*5
-        self.m_t_g_p = self.thermal_gun.get()*15
+        self.m_h_g_p = self.hand_gloves.get()*20    
+        self.m_s_p = self.sanitizer.get()*50        
+        self.m_m_p = self.mask.get()*10
+        self.m_s = self.syrup.get()*100
+        self.m_c_p = self.cream.get()*150
+        self.m_t_g_p = self.thermal_gun.get()*300
         self.total_medical_price = float(self.m_m_p+self.m_h_g_p+self.m_s+self.m_c_p+self.m_t_g_p+self.m_s_p)
 
         self.medical_price.set("Rs. "+str(self.total_medical_price))
-        self.c_tax = round((self.total_medical_price*0.05), 2)
+        self.c_tax = round((self.total_medical_price*0.018), 2)
         self.medical_tax.set("Rs. "+str(self.c_tax))
 
-        self.g_r_p = self.rice.get()*10
+        self.g_r_p = self.rice.get()*50
         self.g_f_o_p = self.food_oil.get()*100
-        self.g_w_p = self.wheat.get()*10
-        self.g_s_p = self.spices.get()*6
-        self.g_f_p = self.flour.get()*8
-        self.g_m_p = self.maggi.get()*5
+        self.g_w_p = self.wheat.get()*40
+        self.g_s_p = self.spices.get()*15
+        self.g_f_p = self.flour.get()*50
+        self.g_m_p = self.maggi.get()*14
         self.total_grocery_price = float(self.g_r_p+self.g_f_o_p+self.g_w_p+self.g_s_p+self.g_f_p+self.g_m_p)
 
         self.grocery_price.set("Rs. " + str(self.total_grocery_price))
-        self.g_tax = round((self.total_grocery_price*0.05), 2)
+        self.g_tax = round((self.total_grocery_price*0.018), 2)
         self.grocery_tax.set("Rs. " + str(self.g_tax))
 
-        self.c_d_s_p = self.sprite.get()*10
-        self.c_d_w_p = self.mineral.get()*10
+        self.c_d_s_p = self.sprite.get()*20
+        self.c_d_w_p = self.mineral.get()*20
         self.c_d_j_p = self.juice.get()*10
-        self.c_d_c_p = self.coke.get()*10
-        self.c_d_l_p = self.lassi.get()*10
-        self.c_m_d = self.mountain_duo.get()*10
+        self.c_d_c_p = self.coke.get()*25
+        self.c_d_l_p = self.lassi.get()*35
+        self.c_m_d = self.mountain_duo.get()*20
         self.total_cold_drinks_price = float(self.c_d_s_p+self.c_d_w_p+self.c_d_j_p+self.c_d_c_p+self.c_d_l_p+self.c_m_d)
 
         self.cold_drinks_price.set("Rs. "+str(self.total_cold_drinks_price))
-        self.c_d_tax = round((self.total_cold_drinks_price * 0.1), 2)
+        self.c_d_tax = round((self.total_cold_drinks_price * 0.018), 2)
         self.cold_drinks_tax.set("Rs. "+str(self.c_d_tax))
 
         self.total_bill = float(self.total_medical_price+self.total_grocery_price+self.total_cold_drinks_price+self.c_tax+self.g_tax+self.c_d_tax)
@@ -285,7 +290,7 @@ class Bill_App:
         self.txtarea.insert(END, "\tWelcome Grocery Retail")
         self.txtarea.insert(END, f"\nBill Number:{self.bill_no.get()}")
         self.txtarea.insert(END, f"\nCustomer Name:{self.c_name.get()}")
-        self.txtarea.insert(END, f"\nPhone Number{self.c_phone.get()}")
+        self.txtarea.insert(END, f"\nPhone Number:{self.c_phone.get()}")
         self.txtarea.insert(END, f"\n================================")
         self.txtarea.insert(END, f"\nProducts\t\tQTY\t\tPrice")
 
@@ -304,7 +309,7 @@ class Bill_App:
         if self.hand_gloves.get() != 0:
             self.txtarea.insert(END, f"\n Hand Gloves\t\t{self.hand_gloves.get()}\t\t{self.m_h_g_p}")
         if self.syrup.get() != 0:
-            self.txtarea.insert(END, f"\n Syrup\t\t{self.syrup.get()}\t\t{self.m_s_p}")
+            self.txtarea.insert(END, f"\n Syrup\t\t{self.syrup.get()}\t\t{self.m_s}")
         if self.cream.get() != 0:
             self.txtarea.insert(END, f"\n Cream\t\t{self.cream.get()}\t\t{self.m_c_p}")
         if self.thermal_gun.get() != 0:
@@ -344,7 +349,7 @@ class Bill_App:
         if self.cold_drinks_tax.get() != '0.0':
             self.txtarea.insert(END, f"\n Cold Drinks Tax\t\t\t{self.cold_drinks_tax.get()}")
 
-        self.txtarea.insert(END, f"\n Total Bil:\t\t\t Rs.{self.total_bill}")
+        self.txtarea.insert(END, f"\n Total Bill:\t\t\t Rs.{self.total_bill}")
         self.txtarea.insert(END, f"\n--------------------------------")
         self.save_bill()
 
@@ -352,9 +357,17 @@ class Bill_App:
         op = messagebox.askyesno("Save Bill", "Do you want to save the bill?")
         if op > 0:
             self.bill_data = self.txtarea.get('1.0', END)
-            f1 = open("bills/"+str(self.bill_no.get())+".txt", "w+")
-            f1.write(self.bill_data)
-            f1.close()
+
+            try:
+                f1 = open("bills/"+str(self.bill_no.get())+".txt", "w")
+                f1.write(self.bill_data)
+            #     print("hel")
+            except FileNotFoundError:
+                print("file not found")
+            
+            # f1=open("G:/Python/Project/my_projects/bills/bills.txt", "a+")
+            # f1.write(self.bill_data)
+                
             messagebox.showinfo("Saved", f"Bill no:{self.bill_no.get()} Saved Successfully")
         else:
            return
@@ -363,7 +376,7 @@ class Bill_App:
         present = "no"
         for i in os.listdir("bills/"):
             if i.split('.')[0] == self.search_bill.get():
-                f1 = open(f"bills/{i}", "r")
+                f1 = open(f"bills/{i}", "r+")
                 self.txtarea.delete("1.0", END)
                 for d in f1:
                     self.txtarea.insert(END, d)
@@ -406,10 +419,11 @@ class Bill_App:
 
             self.c_name.set("")
             self.c_phone.set("")
-
             self.bill_no.set("")
+
             x = random.randint(1000, 9999)
             self.bill_no.set(str(x))
+            #  self.bill_no.set("")
 
             self.search_bill.set("")
             self.welcome_bill()
@@ -420,8 +434,8 @@ class Bill_App:
             self.root.destroy()
 
 
-root = Tk()
-obj = Bill_App(root)
-root.mainloop()
+# root = Tk()
+# obj = Bill_App()
+# root.mainloop()
 
 
