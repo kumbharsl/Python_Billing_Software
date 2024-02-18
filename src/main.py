@@ -9,6 +9,7 @@ def show_question():
     question = quiz_data[current_question]
     qs_label.config(text=question["question"])
 
+
     # Display the choices on the buttons
     choices = question["choices"]
     for i in range(4):
