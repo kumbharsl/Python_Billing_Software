@@ -4,8 +4,6 @@ import random
 import os
 from tkinter import messagebox
 
-
-#===============main=====================
 class Bill_App:
     def __init__(self):
         self.root = tk.Tk()
@@ -376,24 +374,20 @@ class Bill_App:
         present = "no"
 
         for i in os.listdir("bills/"):
-            f1=open(f"bills/{i}", "r+")
-
-
-        # for i in os.listdir("bills/"):
-        #     if i.split('.')[0] == self.search_bill.get():
-        #         f1 = open(f"bills/{i}", "r+")
-        #         self.txtarea.delete("1.0", END)
-        #         for d in f1:
-        #             self.txtarea.insert(END, d)
-        #             f1.close()
-        #         present = "yes"
+             if i.split('.')[0] == self.search_bill.get():
+                 f1 = open(f"bills/{i}", "r+")
+                 self.txtarea.delete("1.0", END)
+                 for d in f1:
+                     self.txtarea.insert(END, d)
+                     f1.close()
+                 present = "yes"
         if present == "no":
             messagebox.showerror("Error", "Invalid Bill No")
 
     def clear_data(self):
         op = messagebox.askyesno("Clear", "Do you really want to Clear?")
         if op > 0:
-            self.sanitizer.set(0)
+            self.sanitizer.set(50)
             self.mask.set(0)
             self.hand_gloves.set(0)
             self.syrup.set(0)
@@ -437,10 +431,3 @@ class Bill_App:
         op = messagebox.askyesno("Exit", "Do you really want to exit?")
         if op > 0:
             self.root.destroy()
-
-
-# root = Tk()
-# obj = Bill_App()
-# root.mainloop()
-
-
