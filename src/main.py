@@ -1,4 +1,4 @@
-import tkinter as Tk
+
 from billing import Bill_App
 
 if __name__=="__main__":
