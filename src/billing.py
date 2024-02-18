@@ -438,4 +438,14 @@ class Bill_App:
     def exit_app(self):
         op = messagebox.askyesno("Exit", "Do you really want to exit?")
         if op > 0:
+<<<<<<< HEAD
             self.root.destroy()
+=======
+            self.root.destroy()
+
+root = Tk()
+obj = Bill_App()
+root.mainloop()
+
+
+>>>>>>> 5673c22c79b7d2c70825a6313485821a8d455828
