@@ -439,8 +439,8 @@ class Bill_App:
             self.root.destroy()
 
 
-# root = Tk()
-# obj = Bill_App()
-# root.mainloop()
+root = Tk()
+obj = Bill_App()
+root.mainloop()
 
 
