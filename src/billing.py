@@ -13,7 +13,7 @@ class Bill_App:
         self.root.title("Billing Software")
         bg_color = "#213C0D"
         fg_colr="White"
-        title = Label(self.root, text="Billing Software", font=('times new roman', 30, 'bold'), pady=2, bg="#213C0D", fg="White")
+        title = Label(self.root, text="Billing Software", font=('times new roman', 30, 'bold'), pady=2, bg=bg_color, fg=fg_colr)
         title.pack(fill=X)
     # ================variables=======================
         self.sanitizer = IntVar()
@@ -54,10 +54,10 @@ class Bill_App:
         self.grocery_tax = StringVar()
         self.cold_drinks_tax = StringVar()
     # =============customer retail details======================
-        F1 = LabelFrame(self.root, text="Customer Details", font=('Rockwell', 15, 'bold'), fg="White", bg="#213C0D")
+        F1 = LabelFrame(self.root, text="Customer Details", font=('Rockwell', 15, 'bold'), fg=fg_colr , bg=bg_color)
         F1.place(x=0, y=100, relwidth=1)
 
-        cname_lbl = Label(F1, text="Customer Name:", bg=bg_color, font=('Rockwell', 15, 'bold'), fg="White")
+        cname_lbl = Label(F1, text="Customer Name:", bg=bg_color, font=('Rockwell', 15, 'bold'), fg=fg_colr)
         cname_lbl.grid(row=0, column=0, padx=20, pady=5)
         cname_txt = Entry(F1, width=15, textvariable=self.c_name, font='Rockwell')
         cname_txt.grid(row=0, column=1, pady=5, padx=10)

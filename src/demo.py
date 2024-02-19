@@ -3,6 +3,7 @@ from tkinter import*
 import random
 import os
 from tkinter import messagebox
+ 
 
 class Bill_App:
     def __init__(self):
@@ -224,7 +225,7 @@ class Bill_App:
         m6_txt.grid(row=2, column=3, padx=18, pady=1)
 
     # =======Buttons-======================================
-        btn_f = Frame(F6, bd=7, relief=GROOVE)
+        btn_f = Frame(F6, bd=7, relief=GROOVE)  
         btn_f.place(x=900, width=580, height=105)
 
         total_btn = Button(btn_f, command=self.total, text="Total", bg=bg_color,  fg=fg_colr, pady=15, width=12, font='arial 13 bold')
@@ -301,7 +302,7 @@ class Bill_App:
             self.welcome_bill()
     # ============medical===========================
         if self.sanitizer.get() != 0:
-            self.txtarea.insert(END, f"\n Sanitizer\t\t{self.sanitizer.get()}\t\t{self.m_s_p}")
+            self.txtarea.insert(END, f"\n Sanitizer{self.sanitizer.get()}{self.m_s_p}")
         if self.mask.get() != 0:
             self.txtarea.insert(END, f"\n Mask\t\t{self.mask.get()}\t\t{self.m_m_p}")
         if self.hand_gloves.get() != 0:
@@ -387,7 +388,7 @@ class Bill_App:
     def clear_data(self):
         op = messagebox.askyesno("Clear", "Do you really want to Clear?")
         if op > 0:
-            self.sanitizer.set(50)
+            self.sanitizer.set(0)
             self.mask.set(0)
             self.hand_gloves.set(0)
             self.syrup.set(0)

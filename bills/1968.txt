@@ -1,0 +1,21 @@
+	Welcome Grocery Retail
+Bill Number:1968
+Customer Name:sagar
+Phone Number:574634487
+================================
+Products		QTY		Price
+ Sanitizer150
+ Mask		1		10
+ Hand Gloves		1		20
+ Syrup		1		100
+ Food Oil		1		100
+ Wheat		1		40
+ Spices		1		15
+ Sprite		1		20
+ Mineral		1		20
+ Juice		1		10
+ Medical Tax			Rs. 3.24
+ Grocery Tax			Rs. 2.79
+ Cold Drinks Tax			Rs. 0.9
+ Total Bill:			 Rs.391.93
+--------------------------------

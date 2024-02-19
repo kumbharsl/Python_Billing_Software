@@ -1,17 +1,26 @@
+import ast
 from tkinter  import *
 from tkinter import messagebox
-from billing import Bill_App 
+from billing import Bill_App
+
+
 
 root =Tk()
 root.title('Billing Software')
-root.geometry( '1000x500+100+50' )
+select_screen_width=root.winfo_screenwidth()
+select_screen_height=root.winfo_screenheight()
+root.geometry(f"{ select_screen_width}x{select_screen_height}")
+#root.geometry( '1000x500+100+50' )
 root.configure(bg= 'white')
 # root.resizable(False, False)
 
 def signup():
     screen=Toplevel(root)
     screen.title("App")
-    screen.geometry('1000x500+100+50' )
+    # screen_width=root.winfo_screenwidth()
+    # screen_height=root.winfo_screenheight()
+    # root.geometry(f"{ screen_width}x{screen_height}")
+    screen.geometry('1250x700+100+50' )
     screen.config(bg='white')
     
     def signup():
@@ -21,7 +30,7 @@ def signup():
         
         if password == conform_password:
             try:
-                file=open('datasheet.txt','r+')
+                file=open('my_projects/Userdata/userInfo.txt','r+')
                 d=file.read()
                 r=ast.literal_eval(d)
                 
@@ -30,13 +39,13 @@ def signup():
                 file.turncate(0)
                 file.close()
                 
-                file=open('datasheet.txt','w')
+                file=open('my_projects/Userdata/userInfo.txt','w')
                 w=file.write(str(r))
                 
                 messagebox.showinfo('Signup','Sucessfully sign up')
                 
             except:
-                file = open('datasheet.txt','w')
+                file = open('my_projects/Userdata/userInfo.txt','w')
                 pp=str({'Username':'password'})
                 file.write(pp)
                 file.close()
@@ -44,8 +53,8 @@ def signup():
         else:
             messagebox.showerror( "Invalid", "Password does not match"  )  
     
-    img  = PhotoImage(file='login1.png')
-    Label(screen, image=img,bg='white').place(x=50,y=100)
+    img  = PhotoImage(file= './assets/image/login.png')
+    Label(screen, image=img,bg='white').place(x=50,y=200)
     
     frame=Frame(screen,width=500,height=450,bg="white")
     frame.place(x=550, y=70)
@@ -127,11 +136,11 @@ def signin():
     elif username != 'admin':
         messagebox.showerror('Invalid','Invalid username')
 
-img  = PhotoImage(file='login.png')
-Label(root, image=img,bg='white').place(x=50,y=90)
+img  = PhotoImage(file='./assets/image/login.png')
+Label(root, image=img,bg='white').place(x=280,y=200)
 
 frame=Frame(root,width=500,height=350,bg="white")
-frame.place(x=550, y=70)
+frame.place(x=750, y=200)
 
 heading = Label(frame,text= "SIGN IN",font=("Helvetica",20,"bold"),fg="#57a1f8" , bg="white")
 heading.place(x=100,y=5)
