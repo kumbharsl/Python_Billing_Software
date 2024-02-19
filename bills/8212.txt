@@ -1,0 +1,15 @@
+	Welcome Grocery Retail
+Bill Number:8212
+Customer Name:
+Phone Number:
+Branch:
+================================
+Products QTY Price
+ Medical Tax
+ Grocery Tax
+ Cold Drinks Tax
+ Medical TaxRs. 0.0
+ Grocery TaxRs. 0.0
+ Cold Drinks TaxRs. 0.0
+ Total Bill: Rs.0.0
+--------------------------------
