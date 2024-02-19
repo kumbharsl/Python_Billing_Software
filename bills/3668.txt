@@ -1,12 +1,12 @@
 	Welcome Grocery Retail
-Bill Number:5130
+Bill Number:3668
 Customer Name:
 Phone Number:
 ================================
 Products		QTY		Price
- Sprite		1		20
- Medical Tax			Rs. 0.0
+ Sanitizer		50		2500
+ Medical Tax			Rs. 45.0
  Grocery Tax			Rs. 0.0
- Cold Drinks Tax			Rs. 0.36
- Total Bill:			 Rs.20.36
+ Cold Drinks Tax			Rs. 0.0
+ Total Bill:			 Rs.2545.0
 --------------------------------

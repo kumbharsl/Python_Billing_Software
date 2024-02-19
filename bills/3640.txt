@@ -1,12 +1,12 @@
 	Welcome Grocery Retail
-Bill Number:4022
+Bill Number:3640
 Customer Name:
 Phone Number:
 ================================
 Products		QTY		Price
- Sanitizer		1		50
- Medical Tax			Rs. 0.9
- Grocery Tax			Rs. 0.0
- Cold Drinks Tax			Rs. 0.0
- Total Bill:			 Rs.50.9
+ Sanitizer		50		2500
+ Medical Tax			
+ Grocery Tax			
+ Cold Drinks Tax			
+ Total Bill:			 Rs.2545.0
 --------------------------------

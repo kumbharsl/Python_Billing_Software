@@ -1,0 +1,13 @@
+	Welcome Grocery Retail
+Bill Number:7015
+Customer Name:Rushikesh
+Phone Number:9112775556
+Branch:Narhe
+================================
+Products QTY Price
+ Sanitizer150
+ Medical TaxRs. 0.9
+ Grocery TaxRs. 0.0
+ Cold Drinks TaxRs. 0.0
+ Total Bill: Rs.50.9
+--------------------------------

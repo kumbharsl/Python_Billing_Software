@@ -1,0 +1,11 @@
+	Welcome Grocery Retail
+Bill Number:7940
+Customer Name:
+Phone Number:
+================================
+Products		QTY		Price
+ Medical Tax			Rs. 0.0
+ Grocery Tax			Rs. 0.0
+ Cold Drinks Tax			Rs. 0.0
+ Total Bill:			 Rs.0.0
+--------------------------------

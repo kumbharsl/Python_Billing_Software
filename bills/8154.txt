@@ -1,0 +1,16 @@
+	Welcome Grocery Retail
+Bill Number:8154
+Customer Name:sagar
+Phone Number:876460765
+================================
+Products		QTY		Price
+ Cream		1		150
+ Maggi		1		14
+ Sprite		1		20
+ Juice		1		10
+ Lassi		1		35
+ Medical Tax			Rs. 2.7
+ Grocery Tax			Rs. 0.25
+ Cold Drinks Tax			Rs. 1.17
+ Total Bill:			 Rs.233.11999999999998
+--------------------------------

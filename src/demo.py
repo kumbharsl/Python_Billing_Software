@@ -3,9 +3,8 @@ from tkinter import*
 import random
 import os
 from tkinter import messagebox
+ 
 
-
-#===============main=====================
 class Bill_App:
     def __init__(self):
         self.root = tk.Tk()
@@ -226,7 +225,7 @@ class Bill_App:
         m6_txt.grid(row=2, column=3, padx=18, pady=1)
 
     # =======Buttons-======================================
-        btn_f = Frame(F6, bd=7, relief=GROOVE)
+        btn_f = Frame(F6, bd=7, relief=GROOVE)  
         btn_f.place(x=900, width=580, height=105)
 
         total_btn = Button(btn_f, command=self.total, text="Total", bg=bg_color,  fg=fg_colr, pady=15, width=12, font='arial 13 bold')
@@ -303,7 +302,7 @@ class Bill_App:
             self.welcome_bill()
     # ============medical===========================
         if self.sanitizer.get() != 0:
-            self.txtarea.insert(END, f"\n Sanitizer\t\t{self.sanitizer.get()}\t\t{self.m_s_p}")
+            self.txtarea.insert(END, f"\n Sanitizer{self.sanitizer.get()}{self.m_s_p}")
         if self.mask.get() != 0:
             self.txtarea.insert(END, f"\n Mask\t\t{self.mask.get()}\t\t{self.m_m_p}")
         if self.hand_gloves.get() != 0:
@@ -376,17 +375,13 @@ class Bill_App:
         present = "no"
 
         for i in os.listdir("bills/"):
-            f1=open(f"bills/{i}", "r+")
-
-
-        # for i in os.listdir("bills/"):
-        #     if i.split('.')[0] == self.search_bill.get():
-        #         f1 = open(f"bills/{i}", "r+")
-        #         self.txtarea.delete("1.0", END)
-        #         for d in f1:
-        #             self.txtarea.insert(END, d)
-        #             f1.close()
-        #         present = "yes"
+             if i.split('.')[0] == self.search_bill.get():
+                 f1 = open(f"bills/{i}", "r+")
+                 self.txtarea.delete("1.0", END)
+                 for d in f1:
+                     self.txtarea.insert(END, d)
+                     f1.close()
+                 present = "yes"
         if present == "no":
             messagebox.showerror("Error", "Invalid Bill No")
 
@@ -437,10 +432,4 @@ class Bill_App:
         op = messagebox.askyesno("Exit", "Do you really want to exit?")
         if op > 0:
             self.root.destroy()
-
-
-root = Tk()
-obj = Bill_App()
-root.mainloop()
-
-
+            
