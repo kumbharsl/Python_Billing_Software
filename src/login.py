@@ -3,7 +3,7 @@ from tkinter import messagebox
 from billing import Bill_App 
 
 root =Tk()
-root.title('Login')
+root.title('Billing Software')
 root.geometry( '1000x500+100+50' )
 root.configure(bg= 'white')
 # root.resizable(False, False)
@@ -23,7 +23,7 @@ def signup():
             try:
                 file=open('datasheet.txt','r+')
                 d=file.read()
-                r.ast.literal_eval(d)
+                r=ast.literal_eval(d)
                 
                 dict2= {username:password}
                 r.update(dict2)
