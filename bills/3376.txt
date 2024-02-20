@@ -1,0 +1,14 @@
+	Welcome Grocery Retail
+Bill Number:3376
+Customer Name:
+Phone Number:
+Branch:
+================================
+Products QTY Price
+ Rice		1		50
+ Medical Tax			Rs. 0.0
+ Grocery Tax			Rs. 0.9
+ Cold Drinks Tax			Rs. 0.0
+ Total Bill:			 Rs.50.9
+--------------------------------
+	 Thank You...! Visit Again...

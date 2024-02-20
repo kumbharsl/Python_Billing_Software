@@ -1,0 +1,15 @@
+	Welcome Grocery Retail
+Bill Number:1844
+Customer Name:
+Phone Number:
+Branch:
+================================
+Products QTY Price
+ Sanitizer150
+ Spices		2		30
+ Medical Tax			Rs. 0.9
+ Grocery Tax			Rs. 0.54
+ Cold Drinks Tax			Rs. 0.0
+ Total Bill:			 Rs.81.44000000000001
+--------------------------------
+	 Thank You...! Visit Again...
