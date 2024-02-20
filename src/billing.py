@@ -1,3 +1,4 @@
+import ast
 import tkinter as tk
 from tkinter import*
 import random
@@ -11,9 +12,18 @@ class Bill_App:
         self.select_screen_height=self.root.winfo_screenheight()
         self.root.geometry(f"{ self.select_screen_width}x{self.select_screen_height}")
         self.root.title("Billing Software")
-        bg_color = "#213C0D"
+        self.setupUi()
+
+      
+        
+   
+
+    
+    def setupUi(self):
+
+        bg_color = "#4D0000"
         fg_colr="White"
-        title = Label(self.root, text="Billing Software", font=('times new roman', 30, 'bold'), pady=2, bg=bg_color, fg=fg_colr)
+        title = Label(self.root, text="Welcome to Billing Software", font=('times new roman', 30, 'bold'), pady=2, bg=bg_color, fg=fg_colr)
         title.pack(fill=X)
     # ================variables=======================
         self.sanitizer = IntVar()
@@ -180,7 +190,7 @@ class Bill_App:
 
     # =================BillArea======================
         F5 = Frame(self.root)
-        F5.place(x=1110, y=170, width=350, height=440)
+        F5.place(x=1110, y=170, width=350, height=460)
 
         bill_title = Label(F5, text="Bill Area", font='Rockwell 20 bold')
         bill_title.pack(fill=X)
@@ -189,7 +199,10 @@ class Bill_App:
         scroll_y.pack(side=RIGHT, fill=Y)
         scroll_y.config(command=self.txtarea.yview)
         self.txtarea.pack(fill=BOTH, expand=1)
-
+        
+        pay_btn = Button(F5,  text="Pay", bg=bg_color, fg=fg_colr,bd=10, pady=15, width=12, font='arial 13 bold')
+        # # pay_btn.grid(row=0, column=3, padx=5, pady=5)
+        pay_btn.place(width=335,  y=410, height=50)
     # =======================ButtonFrame=============
         F6 = LabelFrame(self.root, text="Bill Area", font=('Rockwell', 14, 'bold'),  fg=fg_colr, bg=bg_color)
         F6.place(x=0, y=650, relwidth=1, height=140)
@@ -226,24 +239,27 @@ class Bill_App:
 
     # =======Buttons-======================================
         btn_f = Frame(F6, bd=7, relief=GROOVE)
-        btn_f.place(x=900, width=580, height=105)
+        btn_f.place(x=900, width=600, height=95)
 
-        total_btn = Button(btn_f, command=self.total, text="Total", bg=bg_color,  fg=fg_colr, pady=15, width=12, font='arial 13 bold')
+        total_btn = Button(btn_f, command=self.total, text="Total", bg=bg_color, bd=5,  fg=fg_colr, pady=15, width=12, font='arial 13 bold')
         total_btn.grid(row=0, column=0, padx=5, pady=5)
 
         generateBill_btn = Button(btn_f, command=self.bill_area, text="Generate Bill",bg=bg_color, fg=fg_colr, pady=15, bd=5,width=12, font='arial 13 bold')
         generateBill_btn.grid(row=0, column=1, padx=5, pady=5)
 
-        clear_btn = Button(btn_f, command=self.clear_data, text="Clear", bg=bg_color, fg=fg_colr, pady=15, width=12, font='arial 13 bold')
+        clear_btn = Button(btn_f, command=self.clear_data, text="Clear", bg=bg_color, bd=5,fg=fg_colr, pady=15, width=12, font='arial 13 bold')
         clear_btn.grid(row=0, column=2, padx=5, pady=5)
 
-        exit_btn = Button(btn_f, command=self.exit_app, text="Exit", bg=bg_color, fg=fg_colr, pady=15, width=12, font='arial 13 bold')
+        exit_btn = Button(btn_f, command=self.exit_app, text="Exit", bg=bg_color, bd=5,fg=fg_colr, pady=15, width=12, font='arial 13 bold')
         exit_btn.grid(row=0, column=3, padx=5, pady=5)
+        
+       
         self.welcome_bill()
 
-        #==============execute mainloop===========
+       #==============execute mainloop===========
         self.root.mainloop()
-
+        
+        
 
     def total(self):
         self.m_h_g_p = self.hand_gloves.get()*20    
@@ -303,56 +319,57 @@ class Bill_App:
             self.welcome_bill()
 
         
-    # ============medical===========================
+     # ============medical===========================
         if self.sanitizer.get() != 0:
             self.txtarea.insert(END, f"\n Sanitizer{self.sanitizer.get()}{self.m_s_p}")
         if self.mask.get() != 0:
-            self.txtarea.insert(END, f"\n Mask{self.mask.get()}{self.m_m_p}")
+            self.txtarea.insert(END, f"\n Mask\t\t{self.mask.get()}\t\t{self.m_m_p}")
         if self.hand_gloves.get() != 0:
-            self.txtarea.insert(END, f"\n Hand Gloves{self.hand_gloves.get()}{self.m_h_g_p}")
+            self.txtarea.insert(END, f"\n Hand Gloves\t\t{self.hand_gloves.get()}\t\t{self.m_h_g_p}")
         if self.syrup.get() != 0:
-            self.txtarea.insert(END, f"\n Syrup{self.syrup.get()}{self.m_s}")
+            self.txtarea.insert(END, f"\n Syrup\t\t{self.syrup.get()}\t\t{self.m_s}")
         if self.cream.get() != 0:
-            self.txtarea.insert(END, f"\n Cream{self.cream.get()}{self.m_c_p}")
+            self.txtarea.insert(END, f"\n Cream\t\t{self.cream.get()}\t\t{self.m_c_p}")
         if self.thermal_gun.get() != 0:
-            self.txtarea.insert(END, f"\n Thermal Gun{self.sanitizer.get()}{self.m_t_g_p}")
+            self.txtarea.insert(END, f"\n Thermal Gun\t\t{self.sanitizer.get()}\t\t{self.m_t_g_p}")
     # ==============Grocery============================
         if self.rice.get() != 0:
-            self.txtarea.insert(END, f"\n Rice{self.rice.get()}{self.g_r_p}")
+            self.txtarea.insert(END, f"\n Rice\t\t{self.rice.get()}\t\t{self.g_r_p}")
         if self.food_oil.get() != 0:
-            self.txtarea.insert(END, f"\n Food Oil{self.food_oil.get()}{self.g_f_o_p}")
+            self.txtarea.insert(END, f"\n Food Oil\t\t{self.food_oil.get()}\t\t{self.g_f_o_p}")
         if self.wheat.get() != 0:
-            self.txtarea.insert(END, f"\n Wheat{self.wheat.get()}{self.g_w_p}")
+            self.txtarea.insert(END, f"\n Wheat\t\t{self.wheat.get()}\t\t{self.g_w_p}")
         if self.spices.get() != 0:
-            self.txtarea.insert(END, f"\n Spices{self.spices.get()}{self.g_s_p}")
+            self.txtarea.insert(END, f"\n Spices\t\t{self.spices.get()}\t\t{self.g_s_p}")
         if self.flour.get() != 0:
-            self.txtarea.insert(END, f"\n Flour{self.flour.get()}{self.g_f_p}")
+            self.txtarea.insert(END, f"\n Flour\t\t{self.flour.get()}\t\t{self.g_f_p}")
         if self.maggi.get() != 0:
-            self.txtarea.insert(END, f"\n Maggi{self.maggi.get()}{self.g_m_p}")
+            self.txtarea.insert(END, f"\n Maggi\t\t{self.maggi.get()}\t\t{self.g_m_p}")
         #================ColdDrinks==========================
         if self.sprite.get() != 0:
-            self.txtarea.insert(END, f"\n Sprite{self.sprite.get()}{self.c_d_s_p}")
+            self.txtarea.insert(END, f"\n Sprite\t\t{self.sprite.get()}\t\t{self.c_d_s_p}")
         if self.mineral.get() != 0:
-            self.txtarea.insert(END, f"\n Mineral{self.mineral.get()}{self.c_d_w_p}")
+            self.txtarea.insert(END, f"\n Mineral\t\t{self.mineral.get()}\t\t{self.c_d_w_p}")
         if self.juice.get() != 0:
-            self.txtarea.insert(END, f"\n Juice{self.juice.get()}{self.c_d_j_p}")
+            self.txtarea.insert(END, f"\n Juice\t\t{self.juice.get()}\t\t{self.c_d_j_p}")
         if self.coke.get() != 0:
-            self.txtarea.insert(END, f"\n Coke{self.coke.get()}{self.c_d_c_p}")
+            self.txtarea.insert(END, f"\n Coke\t\t{self.coke.get()}\t\t{self.c_d_c_p}")
         if self.lassi.get() != 0:
-            self.txtarea.insert(END, f"\n Lassi{self.cream.get()}{self.c_d_l_p}")
+            self.txtarea.insert(END, f"\n Lassi\t\t{self.cream.get()}\t\t{self.c_d_l_p}")
         if self.mountain_duo.get() != 0:
-            self.txtarea.insert(END, f"\n Mountain Duo{self.sanitizer.get()}{self.c_m_d}")
+            self.txtarea.insert(END, f"\n Mountain Duo\t\t{self.sanitizer.get()}\t\t{self.c_m_d}")
             self.txtarea.insert(END, f"\n--------------------------------")
     # ===============taxes==============================
         if self.medical_tax.get() != '0.0':
-            self.txtarea.insert(END, f"\n Medical Tax{self.medical_tax.get()}")
+            self.txtarea.insert(END, f"\n Medical Tax\t\t\t{self.medical_tax.get()}")
         if self.grocery_tax.get() != '0.0':
-            self.txtarea.insert(END, f"\n Grocery Tax{self.grocery_tax.get()}")
+            self.txtarea.insert(END, f"\n Grocery Tax\t\t\t{self.grocery_tax.get()}")
         if self.cold_drinks_tax.get() != '0.0':
-            self.txtarea.insert(END, f"\n Cold Drinks Tax{self.cold_drinks_tax.get()}")
+            self.txtarea.insert(END, f"\n Cold Drinks Tax\t\t\t{self.cold_drinks_tax.get()}")
 
-        self.txtarea.insert(END, f"\n Total Bill: Rs.{self.total_bill}")
+        self.txtarea.insert(END, f"\n Total Bill:\t\t\t Rs.{self.total_bill}")
         self.txtarea.insert(END, f"\n--------------------------------")
+        self.txtarea.insert(END, f"\n\t Thank You...! Visit Again...")
         self.save_bill()
 
     def save_bill(self):
@@ -374,23 +391,6 @@ class Bill_App:
         else:
            return
 
-    # def find_bill(self):
-    #     present = "no"
-
-    #     # for i in os.listdir("bills/"):
-    #     #     if i ==self.search_bill.get():
-    #     #         print("Bill not found")
-
-    #     for i in os.listdir("bills/"):
-    #           if i.split('.')[0] == self.search_bill.get():
-    #               f1 = open(f"bills/{i}", "r+")
-    #               self.txtarea.delete("1.0", END)
-    #               for d in f1:
-    #                   self.txtarea.insert(END, d)
-    #                   f1.close()
-    #               present = "yes"
-    #     if present == "no":
-    #          messagebox.showerror("Error", "Invalid Bill No")
 
     def clear_data(self):
         op = messagebox.askyesno("Clear", "Do you really want to Clear?")
@@ -439,3 +439,4 @@ class Bill_App:
         op = messagebox.askyesno("Exit", "Do you really want to exit?")
         if op > 0:
             self.root.destroy()
+
