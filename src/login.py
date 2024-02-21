@@ -16,17 +16,40 @@ additional_widgets=[]
 
 # user.insert(0,"Username")
 def signup():
-    print("In sign ")
-    user = Entry(frame1,width=25,fg='black',border=0,bg='white',font=('Microsoft YaHei UI Light',10))
-    user.insert(0,"Username")
-
-    code = Entry(frame1,width=25,fg='black',border=0,bg='white',font=('Microsoft YaHei UI Light',11))
-    code.insert(0,"Password")
-
-    # for widget in additional_widget:
-    #     widget.destroy()
+    screen=Toplevel(root)
+    screen.title("App")
+    # screen_width=root.winfo_screenwidth()
+    # screen_height=root.winfo_screenheight()
+    # root.geometry(f"{ screen_width}x{screen_height}")
+    screen.geometry('1250x700+100+50' )
+    screen.config(bg='white')
+    
+    def signup():
+        username=user.get()
+        password=code.get()
+        conform_password=code1.get()
         
-    additional_widget=[]
+        if password == conform_password:
+            try:
+                file=open('my_projects/Userdata/userInfo.txt','r+')
+                d=file.read()
+                r=ast.literal_eval(d)
+                
+                dict2= {username:password}
+                r.update(dict2)
+                file.turncate(0)
+                file.close()
+                
+                file=open('my_projects/Userdata/userInfo.txt','w')
+                w=file.write(str(r))
+                
+                messagebox.showinfo('Signup','Sucessfully sign up')
+                
+            except:
+                file = open('my_projects/Userdata/userInfo.txt','w')
+                pp=str({'Username':'password'})
+                file.write(pp)
+                file.close()
         
     frame1=Frame(root,width=500,height=350,bg="white")
 
@@ -63,7 +86,7 @@ def signup():
         messagebox.showerror( "Invalid", "Password does not match"  )  
     
     img  = PhotoImage(file= './assets/image/login.png')
-    Label(frame1, image=img,bg='white').place(x=50,y=200)
+    Label(screen, image=img,bg='white').place(x=50,y=200)
     
     frame=Frame(frame1,width=500,height=450,bg="white")
     frame.place(x=550, y=70)
