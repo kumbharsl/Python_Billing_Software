@@ -5,6 +5,7 @@ import random
 import os
 from tkinter import messagebox
 
+
 class Bill_App:
     def __init__(self):
         self.root = tk.Tk()
@@ -25,6 +26,8 @@ class Bill_App:
         fg_colr="White"
         title = Label(self.root, text="Welcome to Billing Software", font=('times new roman', 30, 'bold'), pady=2, bg=bg_color, fg=fg_colr)
         title.pack(fill=X)
+
+        profile=Label(title, text="self.user")
     # ================variables=======================
         self.sanitizer = IntVar()
         self.mask = IntVar()

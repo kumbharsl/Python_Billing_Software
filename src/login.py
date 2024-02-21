@@ -23,6 +23,8 @@ def signup():
     # root.geometry(f"{ screen_width}x{screen_height}")
     screen.geometry('1250x700+100+50' )
     screen.config(bg='white')
+    signup()
+    
     
     def signup():
         username=user.get()
@@ -96,10 +98,10 @@ def signup():
     
         #-------------------------------------------------------------------------------------------------------------
         #creat user name input
-    def on_enter(self):
-        self.user.delete(0,'end')
+    def on_enter():
+        user.delete(0,'end')
         
-    def on_leave(self):
+    def on_leave():
         name=user.get()
         if name=='':
             user.insert(0,'Username')
@@ -113,10 +115,10 @@ def signup():
         
     #-------------------------------------------------------------------------------------------------------------
     #create password input
-    def on_enter(self):
-        self.code.delete(0,'end')
+    def on_enter():
+        code.delete(0,'end')
         
-    def on_leave(self):
+    def on_leave():
         name=code.get()
         if name=='':
             code.insert(0,'Password')
@@ -129,11 +131,11 @@ def signup():
     
     #-------------------------------------------------------------------------------------------------------------
     #create confirm password input
-    def on_enter(self):
+    def on_enter():
         code1.delete(0,'end')
         
-    def on_leave(self):
-        name=self.code1.get()
+    def on_leave():
+        name=code1.get()
         if name=='':
             code1.insert(0,'Password  Confirm')
         
@@ -156,7 +158,7 @@ def signup():
     
     
 
-# self.screen.mainloop()
+    screen.mainloop()
 #-----------------------------------------------------------------------------------------------------------------
 def signin():
     username=user.get()
@@ -187,10 +189,10 @@ heading = Label(frame,text= "SIGN IN",font=("Helvetica",20,"bold"),fg="#57a1f8" 
 heading.place(x=100,y=5)
 
 #-------------------------------------------------------------------------------------------------------------
-def on_enter(self):
+def on_enter():
     user.delete(0,'end')
     
-def on_leave(self):
+def on_leave():
     name=user.get()
     if name=='':
         user.insert(0,'Username')
@@ -202,10 +204,10 @@ user.bind('<FocusIn>',on_enter)
 user.bind('<FocusOut>',on_leave)
 Frame(frame,width=295,height=2,bg="black").place(x=25,y=110)
 #-------------------------------------------------------------------------------------------------------------
-def on_enter(self):
+def on_enter():
     code.delete(0,'end')
     
-def on_leave(self):
+def on_leave():
     name=code.get()
     if name=='':
         code.insert(0,'Password')
