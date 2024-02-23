@@ -15,6 +15,8 @@ signin=True
 additional_widgets=[]
 
 # user.insert(0,"Username")
+
+
 def signup():
     screen=Toplevel(root)
     screen.title("App")
@@ -106,7 +108,7 @@ def signup():
         if name=='':
             user.insert(0,'Username')
                 
-    # user = Entry(frame1,width=25,fg='black',border=0,bg='white',font=('Microsoft YaHei UI Light',10))
+    user = Entry(frame1,width=25,fg='black',border=0,bg='white',font=('Microsoft YaHei UI Light',10))
     user.place(x=30,y=300)
     # user.insert(0,"Username")
     user.bind('<FocusIn>',on_enter)
