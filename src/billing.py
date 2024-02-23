@@ -14,12 +14,6 @@ class Bill_App:
         self.root.geometry(f"{ self.select_screen_width}x{self.select_screen_height}")
         self.root.title("Billing Software")
         self.setupUi()
-
-      
-        
-   
-
-    
     def setupUi(self):
 
         bg_color = "#4D0000"
