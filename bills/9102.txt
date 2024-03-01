@@ -1,0 +1,15 @@
+	Welcome Grocery Retail
+Bill Number:9102
+Customer Name:sagar
+Phone Number:
+Branch:
+================================
+Products		QTY		Price
+ Sanitizer		150
+ Mask		1		10
+ Medical Tax			Rs. 1.08
+ Grocery Tax			Rs. 0.0
+ Cold Drinks Tax			Rs. 0.0
+ Total Bill:			 Rs.61.08
+--------------------------------
+	Thank you!!! Visit again...

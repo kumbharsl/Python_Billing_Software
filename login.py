@@ -1,6 +1,8 @@
 import ast
 from tkinter  import *
 from tkinter import messagebox
+from google.cloud import firestore
+import json
 from billing import Bill_App
 
 
@@ -181,10 +183,10 @@ def signin():
     elif username != 'admin':
         messagebox.showerror('Invalid','Invalid username')
 
-img  = PhotoImage(file='./assets/image/login.png')
-Label(root, image=img,bg='white').place(x=280,y=200)
+img  = PhotoImage(file='./assets/image/image2.jpg')
+Label(root, image=img,bg='#57a1f8').place(x=280,y=200)
 
-frame=Frame(root,width=500,height=350,bg="white")
+frame=Frame(root,width=500,height=350,bg="#57a1f8")
 frame.place(x=750, y=200)
 
 heading = Label(frame,text= "SIGN IN",font=("Helvetica",20,"bold"),fg="#57a1f8" , bg="white")

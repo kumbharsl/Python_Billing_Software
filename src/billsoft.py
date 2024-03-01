@@ -1,10 +1,18 @@
-import ast
 import tkinter as tk
 from tkinter import*
 import random
 import os
 from tkinter import messagebox
 
+# from google.cloud import firestore 
+# import json
+
+# credential_path='./setup/billing-software-83118-firebase-adminsdk-8l85i-031e4aedef.json' 
+# with open(credential_path) as json_file:
+#     credential_info=json.load(json_file)
+
+# db=firestore.Client.from_service_account_info(credential_info)
+ 
 
 class Bill_App:
     def __init__(self):
@@ -13,15 +21,10 @@ class Bill_App:
         self.select_screen_height=self.root.winfo_screenheight()
         self.root.geometry(f"{ self.select_screen_width}x{self.select_screen_height}")
         self.root.title("Billing Software")
-        self.setupUi()
-    def setupUi(self):
-
-        bg_color = "#4D0000"
+        bg_color = "#213C0D"
         fg_colr="White"
-        title = Label(self.root, text="Welcome to Billing Software", font=('times new roman', 30, 'bold'), pady=2, bg=bg_color, fg=fg_colr)
+        title = Label(self.root, text="Billing Software", font=('times new roman', 30, 'bold'), pady=2, bd=12, bg="#213C0D", fg="White")
         title.pack(fill=X)
-
-        profile=Label(title, text="self.user")
     # ================variables=======================
         self.sanitizer = IntVar()
         self.mask = IntVar()
@@ -51,20 +54,19 @@ class Bill_App:
         self.c_name = StringVar()
         self.c_phone = StringVar()
         self.bill_no = StringVar()
-        self.s_branch=StringVar()
         x = random.randint(1000, 9999)
         self.bill_no.set(str(x))
     
-        
+        self.branch= StringVar()
     # ===============Tax================================
         self.medical_tax = StringVar()
         self.grocery_tax = StringVar()
         self.cold_drinks_tax = StringVar()
     # =============customer retail details======================
-        F1 = LabelFrame(self.root, text="Customer Details", font=('Rockwell', 15, 'bold'), fg=fg_colr , bg=bg_color)
+        F1 = LabelFrame(self.root, text="Customer Details", font=('Rockwell', 15, 'bold'), fg="White", bg="#213C0D")
         F1.place(x=0, y=100, relwidth=1)
 
-        cname_lbl = Label(F1, text="Customer Name:", bg=bg_color, font=('Rockwell', 15, 'bold'), fg=fg_colr)
+        cname_lbl = Label(F1, text="Customer Name:", bg=bg_color, font=('Rockwell', 15, 'bold'), fg="White")
         cname_lbl.grid(row=0, column=0, padx=20, pady=5)
         cname_txt = Entry(F1, width=15, textvariable=self.c_name, font='Rockwell')
         cname_txt.grid(row=0, column=1, pady=5, padx=10)
@@ -76,7 +78,7 @@ class Bill_App:
 
         c_bill_lbl = Label(F1, text="Branch:", bg=bg_color, font=('Rockwell', 15, 'bold'), fg="White")
         c_bill_lbl.grid(row=0, column=4, padx=20, pady=5)
-        c_bill_txt = Entry(F1, width=15, textvariable=self.s_branch, font='Rockwell 15')
+        c_bill_txt = Entry(F1, width=15, textvariable=self.branch, font='Rockwell 15')
         c_bill_txt.grid(row=0, column=5, pady=5, padx=10)
 
         # bil_btn = Button(F1, text="Search", command=self.find_bill, width=10,  font=('Rockwell', 12, 'bold'))
@@ -187,7 +189,7 @@ class Bill_App:
 
     # =================BillArea======================
         F5 = Frame(self.root)
-        F5.place(x=1110, y=170, width=350, height=460)
+        F5.place(x=1110, y=170, width=350, height=440)
 
         bill_title = Label(F5, text="Bill Area", font='Rockwell 20 bold')
         bill_title.pack(fill=X)
@@ -196,10 +198,7 @@ class Bill_App:
         scroll_y.pack(side=RIGHT, fill=Y)
         scroll_y.config(command=self.txtarea.yview)
         self.txtarea.pack(fill=BOTH, expand=1)
-        
-        pay_btn = Button(F5,  text="Pay", bg=bg_color, fg=fg_colr,bd=10, pady=15, width=12, font='arial 13 bold')
-        # # pay_btn.grid(row=0, column=3, padx=5, pady=5)
-        pay_btn.place(width=335,  y=410, height=50)
+
     # =======================ButtonFrame=============
         F6 = LabelFrame(self.root, text="Bill Area", font=('Rockwell', 14, 'bold'),  fg=fg_colr, bg=bg_color)
         F6.place(x=0, y=650, relwidth=1, height=140)
@@ -235,28 +234,25 @@ class Bill_App:
         m6_txt.grid(row=2, column=3, padx=18, pady=1)
 
     # =======Buttons-======================================
-        btn_f = Frame(F6, bd=7, relief=GROOVE)
-        btn_f.place(x=900, width=600, height=95)
+        btn_f = Frame(F6, bd=7, relief=GROOVE)  
+        btn_f.place(x=900, width=580, height=105)
 
-        total_btn = Button(btn_f, command=self.total, text="Total", bg=bg_color, bd=5,  fg=fg_colr, pady=15, width=12, font='arial 13 bold')
+        total_btn = Button(btn_f, command=self.total, text="Total", bg=bg_color,  fg=fg_colr, pady=15, width=12, font='arial 13 bold')
         total_btn.grid(row=0, column=0, padx=5, pady=5)
 
-        generateBill_btn = Button(btn_f, command=self.bill_area, text="Generate Bill",bg=bg_color, fg=fg_colr, pady=15, bd=5,width=12, font='arial 13 bold')
+        generateBill_btn = Button(btn_f, command=self.bill_area, text="Generate Bill",bg=bg_color, fg=fg_colr, pady=15,width=12, font='arial 13 bold')
         generateBill_btn.grid(row=0, column=1, padx=5, pady=5)
 
-        clear_btn = Button(btn_f, command=self.clear_data, text="Clear", bg=bg_color, bd=5,fg=fg_colr, pady=15, width=12, font='arial 13 bold')
+        clear_btn = Button(btn_f, command=self.clear_data, text="Clear", bg=bg_color, fg=fg_colr, pady=15, width=12, font='arial 13 bold')
         clear_btn.grid(row=0, column=2, padx=5, pady=5)
 
-        exit_btn = Button(btn_f, command=self.exit_app, text="Exit", bg=bg_color, bd=5,fg=fg_colr, pady=15, width=12, font='arial 13 bold')
+        exit_btn = Button(btn_f, command=self.exit_app, text="Exit", bg=bg_color, fg=fg_colr, pady=15, width=12, font='arial 13 bold')
         exit_btn.grid(row=0, column=3, padx=5, pady=5)
-        
-       
         self.welcome_bill()
 
-       #==============execute mainloop===========
+        #==============execute mainloop===========
         self.root.mainloop()
-        
-        
+
 
     def total(self):
         self.m_h_g_p = self.hand_gloves.get()*20    
@@ -303,22 +299,20 @@ class Bill_App:
         self.txtarea.insert(END, f"\nBill Number:{self.bill_no.get()}")
         self.txtarea.insert(END, f"\nCustomer Name:{self.c_name.get()}")
         self.txtarea.insert(END, f"\nPhone Number:{self.c_phone.get()}")
-        self.txtarea.insert(END, f"\nBranch:{self.s_branch.get()}")
+        self.txtarea.insert(END, f"\nBranch:{self.branch.get()}")
         self.txtarea.insert(END, f"\n================================")
-        self.txtarea.insert(END, f"\nProducts QTY Price")
+        self.txtarea.insert(END, f"\nProducts\t\tQTY\t\tPrice")
 
     def bill_area(self):
-        if self.c_name.get() == " " or self.c_phone.get() == " " or self.s_branch.get()==" ":
+        if self.c_name.get() == " " or self.c_phone.get() == " ":
             messagebox.showerror("Error", "Customer Details Are Must")
         elif self.medical_price.get() == "Rs. 0.0" and self.grocery_price.get() == "Rs. 0.0" and self.cold_drinks_price.get()=="Rs. 0.0":
             messagebox.showerror("Error", "No Product Purchased")
         else:
             self.welcome_bill()
-
-        
-     # ============medical===========================
+    # ============medical===========================
         if self.sanitizer.get() != 0:
-            self.txtarea.insert(END, f"\n Sanitizer{self.sanitizer.get()}{self.m_s_p}")
+            self.txtarea.insert(END, f"\n Sanitizer\t\t{self.sanitizer.get()}{self.m_s_p}")
         if self.mask.get() != 0:
             self.txtarea.insert(END, f"\n Mask\t\t{self.mask.get()}\t\t{self.m_m_p}")
         if self.hand_gloves.get() != 0:
@@ -356,6 +350,8 @@ class Bill_App:
         if self.mountain_duo.get() != 0:
             self.txtarea.insert(END, f"\n Mountain Duo\t\t{self.sanitizer.get()}\t\t{self.c_m_d}")
             self.txtarea.insert(END, f"\n--------------------------------")
+        
+      
     # ===============taxes==============================
         if self.medical_tax.get() != '0.0':
             self.txtarea.insert(END, f"\n Medical Tax\t\t\t{self.medical_tax.get()}")
@@ -366,7 +362,7 @@ class Bill_App:
 
         self.txtarea.insert(END, f"\n Total Bill:\t\t\t Rs.{self.total_bill}")
         self.txtarea.insert(END, f"\n--------------------------------")
-        self.txtarea.insert(END, f"\n\t Thank You...! Visit Again...")
+        self.txtarea.insert(END, f"\n\tThank you!!! Visit again...")
         self.save_bill()
 
     def save_bill(self):
@@ -377,7 +373,7 @@ class Bill_App:
             try:
                 f1 = open("bills/"+str(self.bill_no.get())+".txt", "w")
                 f1.write(self.bill_data)
-            
+            #     print("hel")
             except FileNotFoundError:
                 print("file not found")
             
@@ -388,6 +384,19 @@ class Bill_App:
         else:
            return
 
+    def find_bill(self):
+        present = "no"
+
+        for i in os.listdir("bills/"):
+             if i.split('.')[0] == self.search_bill.get():
+                 f1 = open(f"bills/{i}", "r+")
+                 self.txtarea.delete("1.0", END)
+                 for d in f1:
+                     self.txtarea.insert(END, d)
+                     f1.close()
+                 present = "yes"
+        if present == "no":
+            messagebox.showerror("Error", "Invalid Bill No")
 
     def clear_data(self):
         op = messagebox.askyesno("Clear", "Do you really want to Clear?")
@@ -436,4 +445,4 @@ class Bill_App:
         op = messagebox.askyesno("Exit", "Do you really want to exit?")
         if op > 0:
             self.root.destroy()
-
+            
